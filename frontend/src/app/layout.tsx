@@ -1,44 +1,31 @@
-import './globals.css';
-import { ReactNode } from 'react';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
+const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: 'treee',
-  description: 'treee 홈페이지입니다.',
-  openGraph: {
-    type: 'website',
-    url: 'https://www.treee.com/',
-    title: 'treee',
-    description: 'treee 홈페이지입니다.',
-    images: [
-      {
-        url: 'https://www.yourwebsite.com/og-image.jpg',
-        width: 800,
-        height: 600,
-        alt: 'treee 오픈 그래프 이미지',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'treee',
-    description: 'treee 홈페이지입니다.',
-    images: ['https://www.yourwebsite.com/twitter-image.jpg'],
-  },
-  icons: {
-    icon: '/favicon.ico',
-  },
+export const metadata: Metadata = {
+  title: "treee",
+  description: "treee description",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="ko">
-      <body className="flex flex-col min-h-screen">
+      <body className={inter.className}>
         <Navbar />
-        <main className="flex-grow">
-          {children}
+        {/* Navbar 높이(80px)만큼 상단 여백 추가 */}
+        <main className="pt-[80px] min-h-screen">
+          {/* 최대 너비 제한과 중앙 정렬을 위한 컨테이너 */}
+          <div className="max-w-7xl mx-auto px-6">
+            {children}
+          </div>
         </main>
         <Footer />
       </body>

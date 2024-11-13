@@ -152,46 +152,53 @@ export default function TradeHistoryPage() {
     };
 
     return (
-        <main className="flex">
-            {/* 네비게이션 바 */}
-            <nav className="w-64 bg-gray-200 p-4 overflow-auto">
+        <div className="flex flex-col md:flex-row gap-6">
+            {/* 사이드 네비게이션 */}
+            <aside className="md:w-64 bg-white rounded-lg shadow-sm p-4">
                 <h2 className="text-xl font-semibold mb-4">구 선택</h2>
-                <ul>
-                    <li className="mb-2">
-                        <div
-                            className={`p-2 cursor-pointer bg-gray-300 rounded ${selectedDistrict === '전체' ? 'bg-blue-500 text-white' : 'hover:bg-blue-300'
-                                }`}
+                <ul className="space-y-2">
+                    <li>
+                        <button
+                            className={`w-full px-4 py-2 text-left rounded-lg transition-colors
+                                ${selectedDistrict === '전체'
+                                    ? 'bg-blue-500 text-white'
+                                    : 'hover:bg-gray-100'}`}
                             onClick={() => handleDistrictClick('전체')}
                         >
                             전체
-                        </div>
+                        </button>
                     </li>
                     {districtData.map((district) => (
-                        <li key={district} className="mb-2">
-                            <div
-                                className={`p-2 cursor-pointer bg-gray-300 rounded ${selectedDistrict === district ? 'bg-blue-500 text-white' : 'hover:bg-blue-300'
-                                    }`}
+                        <li key={district}>
+                            <button
+                                className={`w-full px-4 py-2 text-left rounded-lg transition-colors
+                                    ${selectedDistrict === district
+                                        ? 'bg-blue-500 text-white'
+                                        : 'hover:bg-gray-100'}`}
                                 onClick={() => handleDistrictClick(district)}
                             >
                                 {district}
-                            </div>
+                            </button>
                         </li>
                     ))}
                 </ul>
-            </nav>
+            </aside>
 
             {/* 메인 컨텐츠 */}
-            <section className="flex-1 bg-gray-100 py-12">
-                <h1 className="main-title text-4xl font-bold text-center mb-4">
-                    {selectedDistrict === '전체' ? '부산광역시' : `${selectedDistrict}`} 아파트 실거래가 추이
-                </h1>
-                <p className="sub-title text-xl text-center text-gray-700 mb-8">
-                    최신 부동산 실거래가 데이터를 시각화하여 제공합니다.
-                </p>
-                <div className="w-full max-w-4xl h-[600px] bg-white p-8 rounded-lg shadow-lg mx-auto">
-                    <canvas ref={chartRef} />
+            <div className="flex-1">
+                <div className="bg-white rounded-lg shadow-sm p-6">
+                    <h1 className="text-2xl font-bold text-center mb-2">
+                        {selectedDistrict === '전체' ? '부산광역시' : selectedDistrict} 아파트 실거래가 추이
+                    </h1>
+                    <p className="text-gray-600 text-center mb-8">
+                        최신 부동산 실거래가 데이터를 시각화하여 제공합니다.
+                    </p>
+                    {/* 차트 컨테이너 */}
+                    <div className="w-full h-[500px] relative">
+                        <canvas ref={chartRef} />
+                    </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
     );
 }
