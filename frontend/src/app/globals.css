@@ -4,29 +4,29 @@
 @import '@fortawesome/fontawesome-free/css/all.min.css';
 
 :root {
-    --background: #ffffff;
-    --foreground: #000000;
+  --background: #ffffff;
+  --foreground: #000000;
 }
 
 body {
-    background: var(--background);
-    color: var(--foreground);
+  background: var(--background);
+  color: var(--foreground);
 }
 
 @layer components {
-    .hero-section {
-        @apply min-h-screen flex flex-col items-center justify-center text-center px-4;
-    }
+  .hero-section {
+    @apply min-h-screen flex flex-col items-center justify-center text-center px-4;
+  }
 
-    .main-title {
-        @apply text-5xl font-bold mb-6;
-    }
+  .main-title {
+    @apply text-5xl font-bold mb-6;
+  }
 
-    .sub-title {
-        @apply text-xl text-gray-600 mb-8;
-    }
+  .sub-title {
+    @apply text-xl text-gray-600 mb-8;
+  }
 
-    .cta-button {
-        @apply bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300;
-    }
+  .cta-button {
+    @apply bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300;
+  }
 }

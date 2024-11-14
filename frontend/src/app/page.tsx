@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
 import { useState, useEffect, useMemo } from 'react';
+import Image from 'next/image';
 import ChartSection from './components/ChartSection';
 interface CarouselItem {
   image: string;
@@ -17,74 +18,77 @@ export default function Home() {
   // 캐러셀 데이터
   const carouselData: CarouselItem[] = [
     {
-      image: "/images/1.webp",
-      name: "해운대 엘시티",
+      image: '/images/1.webp',
+      name: '해운대 엘시티',
       price: 250000,
-      date: "2024-03-15",
+      date: '2024-03-15',
       area: 84.23,
-      road_address: "부산광역시 해운대구 달맞이길 30"
+      road_address: '부산광역시 해운대구 달맞이길 30',
     },
     {
-      image: "/images/2.webp",
-      name: "센텀 파크뷰",
+      image: '/images/2.webp',
+      name: '센텀 파크뷰',
       price: 250000,
-      date: "2024-03-15",
+      date: '2024-03-15',
       area: 84.23,
-      road_address: "부산광역시 해운대구 달맞이길 30"
+      road_address: '부산광역시 해운대구 달맞이길 30',
     },
     {
-      image: "/images/3.webp",
-      name: "두산위브더제니스 센트럴사하",
+      image: '/images/3.webp',
+      name: '두산위브더제니스 센트럴사하',
       price: 250000,
-      date: "2024-03-15",
+      date: '2024-03-15',
       area: 84.23,
-      road_address: "부산광역시 해운대구 달맞이길 30"
+      road_address: '부산광역시 해운대구 달맞이길 30',
     },
     {
-      image: "/images/4.webp",
-      name: "에코델타시티 한양수자인",
+      image: '/images/4.webp',
+      name: '에코델타시티 한양수자인',
       price: 250000,
-      date: "2024-03-15",
+      date: '2024-03-15',
       area: 84.23,
-      road_address: "부산광역시 해운대구 달맞이길 30"
+      road_address: '부산광역시 해운대구 달맞이길 30',
     },
     {
-      image: "/images/5.webp",
-      name: "사직하늘채 리센티아",
+      image: '/images/5.webp',
+      name: '사직하늘채 리센티아',
       price: 250000,
-      date: "2024-03-15",
+      date: '2024-03-15',
       area: 84.23,
-      road_address: "부산광역시 해운대구 달맞이길 30"
-    }
+      road_address: '부산광역시 해운대구 달맞이길 30',
+    },
   ];
 
   // 차트 데이터
-  const chartData = useMemo(() => [
-    {
-      title: "부산진구",
-      value: 45000,
-      change: 0.26,
-      data: [44000, 44500, 44800, 45200, 45000, 45100, 45000]
-    },
-    {
-      title: "부산서구",
-      value: 38000,
-      change: -0.15,
-      data: [38500, 38300, 38200, 38100, 38000, 37900, 38000]
-    },
-    {
-      title: "부산중구",
-      value: 42000,
-      change: 0.18,
-      data: [41800, 41900, 42000, 42100, 42000, 42100, 42000]
-    },
-    {
-      title: "부산금정구",
-      value: 40000,
-      change: -0.22,
-      data: [40200, 40100, 40000, 39900, 39800, 39900, 40000]
-    }
-  ], []);
+  const chartData = useMemo(
+    () => [
+      {
+        title: '부산진구',
+        value: 45000,
+        change: 0.26,
+        data: [44000, 44500, 44800, 45200, 45000, 45100, 45000],
+      },
+      {
+        title: '부산서구',
+        value: 38000,
+        change: -0.15,
+        data: [38500, 38300, 38200, 38100, 38000, 37900, 38000],
+      },
+      {
+        title: '부산중구',
+        value: 42000,
+        change: 0.18,
+        data: [41800, 41900, 42000, 42100, 42000, 42100, 42000],
+      },
+      {
+        title: '부산금정구',
+        value: 40000,
+        change: -0.22,
+        data: [40200, 40100, 40000, 39900, 39800, 39900, 40000],
+      },
+    ],
+    []
+  );
 
   // 자동 슬라이드 효과
   useEffect(() => {
@@ -95,7 +99,8 @@ export default function Home() {
     }, 3500);
 
     return () => clearInterval(timer);
-  }, []);
+    // }, []);
+  });
 
   // 날짜 포맷팅
   const formatDate = (dateString: string) => {
@@ -129,10 +134,12 @@ export default function Home() {
                 }`}
             >
               <div className="w-1/3 h-full">
-                <img
+                <Image
                   src={slide.image}
                   alt={slide.name}
-                  className="w-full h-full object-cover"
+                  width={400}
+                  height={400}
+                // className="w-full h-full object-cover"
                 />
               </div>
               <div className="w-2/3 h-full bg-white p-8 flex flex-col justify-between">
@@ -141,12 +148,16 @@ export default function Home() {
                 <div className="space-y-4 text-gray-700">
                   <div className="flex items-center">
                     <span className="w-24 text-gray-500">거래가격</span>
-                    <span className="font-semibold">{slide.price.toLocaleString()}만원</span>
+                    <span className="font-semibold">
+                      {slide.price.toLocaleString()}만원
+                    </span>
                   </div>
 
                   <div className="flex items-center">
                     <span className="w-24 text-gray-500">거래일</span>
-                    <span className="font-semibold">{formatDate(slide.date)}</span>
+                    <span className="font-semibold">
+                      {formatDate(slide.date)}
+                    </span>
                   </div>
 
                   <div className="flex items-center">

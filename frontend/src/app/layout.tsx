@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Kindom",
-  description: "부동산 실거래가 데이터 제공",
+  title: 'Kindom',
+  description: '부동산 실거래가 데이터 제공',
 };
 
 export default function RootLayout({
@@ -25,13 +25,11 @@ export default function RootLayout({
           {/* Navbar 높이(80px)만큼 상단 여백 추가 */}
           <main className="pt-[80px] min-h-screen">
             {/* 최대 너비 제한과 중앙 정렬을 위한 컨테이너 */}
-            <div className="max-w-7xl mx-auto">
-              {children}
-            </div>
+            <div className="max-w-7xl mx-auto">{children}</div>
           </main>
           <Footer />
         </div>
       </body>
-    </html >
+    </html>
   );
 }
