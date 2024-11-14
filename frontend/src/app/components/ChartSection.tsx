@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import ChartItem from './ChartItem';
+import ChartItem from './ChartDisplay';
 
 interface ChartSectionProps {
   chartData: {

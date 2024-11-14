@@ -12,6 +12,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import { Chart } from 'chart.js';
+import ChartItem from '@/types/chart_item';
 
 ChartJS.register(
   LineController,
@@ -23,19 +24,7 @@ ChartJS.register(
   Tooltip
 );
 
-interface ChartItemProps {
-  title: string;
-  value: number;
-  change: number;
-  data: number[];
-}
-
-const ChartItem: React.FC<ChartItemProps> = ({
-  title,
-  value,
-  change,
-  data,
-}) => {
+const ChartDisplay: React.FC<ChartItem> = ({ title, value, change, data }) => {
   const chartRef = useRef<HTMLCanvasElement>(null);
   const chartInstance = useRef<Chart | null>(null);
 
@@ -122,6 +111,6 @@ const ChartItem: React.FC<ChartItemProps> = ({
   );
 };
 
-ChartItem.displayName = 'ChartItem';
+ChartDisplay.displayName = 'ChartDisplay';
 
-export default ChartItem;
+export default ChartDisplay;
