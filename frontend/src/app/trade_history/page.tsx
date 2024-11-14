@@ -152,15 +152,15 @@ export default function TradeHistoryPage() {
     };
 
     return (
-        <div className="flex flex-col md:flex-row gap-6">
+        <div className="flex flex-col md:flex-row">
             {/* 사이드 네비게이션 */}
-            <aside className="md:w-64 bg-white rounded-lg shadow-sm p-4">
+            <aside className="w-full md:w-48 bg-white rounded-lg shadow-sm p-4"> {/* 너비를 48로 줄임 */}
                 <h2 className="text-xl font-semibold mb-4">구 선택</h2>
                 <ul className="space-y-2">
                     <li>
                         <button
                             className={`w-full px-4 py-2 text-left rounded-lg transition-colors
-                                ${selectedDistrict === '전체'
+                            ${selectedDistrict === '전체'
                                     ? 'bg-blue-500 text-white'
                                     : 'hover:bg-gray-100'}`}
                             onClick={() => handleDistrictClick('전체')}
@@ -172,7 +172,7 @@ export default function TradeHistoryPage() {
                         <li key={district}>
                             <button
                                 className={`w-full px-4 py-2 text-left rounded-lg transition-colors
-                                    ${selectedDistrict === district
+                                ${selectedDistrict === district
                                         ? 'bg-blue-500 text-white'
                                         : 'hover:bg-gray-100'}`}
                                 onClick={() => handleDistrictClick(district)}

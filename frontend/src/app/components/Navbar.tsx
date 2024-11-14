@@ -16,13 +16,12 @@ export default function Navbar() {
                 <div className="flex justify-between items-center h-full">
                     {/* 로고 영역 */}
                     <div className="flex items-center">
-                        <a href="/" className="text-2xl font-bold text-gray-900">treee</a>
+                        <a href="/" className="text-2xl font-bold text-gray-900">Kindom</a>
                     </div>
 
                     {/* 데스크톱 메뉴 */}
                     <div className="hidden md:flex items-center space-x-8">
-                        <a href="/home" className="text-[17px] font-medium text-gray-900 hover:text-blue-600 transition-colors">매매</a>
-                        <a href="/about" className="text-[17px] font-medium text-gray-900 hover:text-blue-600 transition-colors">전월세</a>
+                        <a href="/trade_history" className="text-[17px] font-medium text-gray-900 hover:text-blue-600 transition-colors">매매</a>
                     </div>
 
                     {/* 모바일 메뉴 버튼 */}
@@ -43,8 +42,7 @@ export default function Navbar() {
             {isMobileMenuOpen && (
                 <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
                     <div className="max-w-7xl mx-auto px-6 py-4 space-y-3">
-                        <a href="/home" className="block text-[17px] font-medium text-gray-900 hover:text-blue-600 transition-colors">매매</a>
-                        <a href="/about" className="block text-[17px] font-medium text-gray-900 hover:text-blue-600 transition-colors">전월세</a>
+                        <a href="/trade_history" className="block text-[17px] font-medium text-gray-900 hover:text-blue-600 transition-colors">매매</a>
                     </div>
                 </div>
             )}
