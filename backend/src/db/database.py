@@ -9,8 +9,8 @@ from sqlalchemy import (
 )
 from sqlalchemy.ext.asyncio import AsyncConnection, create_async_engine
 
-from src.config import settings
-from src.constants import DB_NAMING_CONVENTION
+from src.core.config import settings
+from src.core.constants import DB_NAMING_CONVENTION
 
 DATABASE_URL = str(settings.DATABASE_ASYNC_URL)
 

@@ -1,15 +1,13 @@
 from sqlalchemy import BIGINT, CHAR, DECIMAL, INT, VARCHAR, DATE, PrimaryKeyConstraint
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column
 from datetime import date
 
-class SQLAlchemyModel(DeclarativeBase):
-    pass
+from src.db.models.base import SQLAlchemyModel
+
 
 class ApartmentTradeHistory(SQLAlchemyModel):
     __tablename__ = "apartment_trade_history"
-    __table_args__ = (
-        PrimaryKeyConstraint("id"),
-    )
+    __table_args__ = (PrimaryKeyConstraint("id"),)
 
     id: Mapped[int] = mapped_column(BIGINT, primary_key=True)
     법정동시군구코드: Mapped[str] = mapped_column(CHAR(5))
@@ -44,5 +42,3 @@ class ApartmentTradeHistory(SQLAlchemyModel):
     매도자: Mapped[str] = mapped_column(VARCHAR(100), nullable=True)
     매수자: Mapped[str] = mapped_column(VARCHAR(100), nullable=True)
     토지임대부아파트여부: Mapped[str] = mapped_column(VARCHAR(1), nullable=True)
-
-

@@ -3,7 +3,7 @@ from typing import Any
 from pydantic import MySQLDsn
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-from src.constants import Environment
+from src.core.constants import Environment
 
 
 class CustomBaseSettings(BaseSettings):
