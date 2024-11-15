@@ -1,3 +1,4 @@
+from datetime import date, timedelta
 from enum import StrEnum
 
 DB_NAMING_CONVENTION = {
@@ -26,6 +27,42 @@ class Environment(StrEnum):
     @property
     def is_deployed(self) -> bool:
         return self in (self.STAGING, self.PRODUCTION)
+
+
+class RangeValue(StrEnum):
+    ONE_WEEK = "1W"
+    ONE_MONTH = "1M"
+    THREE_MONTH = "3M"
+    SIX_MONTH = "6M"
+    ONE_YEAR = "1Y"
+    MAX = "MAX"
+
+    @classmethod
+    def to_start_date(cls, range_value: "RangeValue") -> date:
+        year, month, day = cls.to_start_year_month_day(range_value)
+        return date(year, month, day)
+
+    @classmethod
+    def to_start_year_month_day(cls, range_value: "RangeValue") -> tuple[int, int, int]:
+        today = date.today()
+
+        if range_value == cls.ONE_WEEK:
+            one_week_ago = today - timedelta(weeks=1)
+            return one_week_ago.year, one_week_ago.month, one_week_ago.day
+        elif range_value == cls.ONE_MONTH:
+            one_month_ago = today - timedelta(weeks=4)
+            return one_month_ago.year, one_month_ago.month, one_month_ago.day
+        elif range_value == cls.THREE_MONTH:
+            three_month_ago = today - timedelta(weeks=12)
+            return three_month_ago.year, three_month_ago.month, three_month_ago.day
+        elif range_value == cls.SIX_MONTH:
+            six_month_ago = today - timedelta(weeks=24)
+            return six_month_ago.year, six_month_ago.month, six_month_ago.day
+        elif range_value == cls.ONE_YEAR:
+            one_year_ago = today - timedelta(weeks=52)
+            return one_year_ago.year, one_year_ago.month, one_year_ago.day
+        elif range_value == cls.MAX:
+            return 2010, 1, 1
 
 
 class SigunguName(StrEnum):

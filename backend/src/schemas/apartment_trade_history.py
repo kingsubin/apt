@@ -1,5 +1,5 @@
 from datetime import date
-from pydantic import Field
+from pydantic import Field, computed_field
 from src.schemas.pydantic_base import PydanticBaseModel
 
 
@@ -36,6 +36,10 @@ class ApartmentTradeHistoryModel(PydanticBaseModel):
     매도자: str | None
     매수자: str | None
     토지임대부아파트여부: str | None
+
+    @computed_field
+    def trade_date(self) -> date:
+        return date(int(self.계약년도), int(self.계약월), int(self.계약일))
 
 
 class ApartmentTradeHistoryOutput(ApartmentTradeHistoryModel):
