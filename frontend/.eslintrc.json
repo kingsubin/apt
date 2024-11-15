@@ -4,8 +4,14 @@
     "plugin:prettier/recommended" // Prettier와 통합
   ],
   "rules": {
-    "semi": ["error", "always"],
-    "quotes": ["error", "single"],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
     "no-console": "warn"
   }
 }

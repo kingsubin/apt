@@ -26,7 +26,7 @@ yarn-error.log*
 Thumbs.db
 
 # 에디터 및 IDE 설정
-.vscode/
+# .vscode/
 *.sublime-project
 *.sublime-workspace
 

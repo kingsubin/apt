@@ -1,0 +1,7 @@
+[lint]
+select = ["ALL"]
+ignore = ["D211", "D213"]
+
+[format]
+select = ["ALL"]
+ignore = ["D211", "D213"]
