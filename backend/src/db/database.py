@@ -19,7 +19,6 @@ engine = create_async_engine(
     pool_size=settings.DATABASE_POOL_SIZE,
     pool_recycle=settings.DATABASE_POOL_TTL,
     pool_pre_ping=settings.DATABASE_POOL_PRE_PING,
-    echo=True,
 )
 metadata = MetaData(naming_convention=DB_NAMING_CONVENTION)
 

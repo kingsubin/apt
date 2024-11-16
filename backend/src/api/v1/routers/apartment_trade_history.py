@@ -9,7 +9,7 @@ router = APIRouter(prefix="/apartment-trade-histories")
 
 
 @router.get(
-    "/",
+    "",
     response_model=MultipleResponseModel[TradeStats],
 )
 async def get_trades(

@@ -12,7 +12,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import { Chart } from 'chart.js';
-import ChartItem from '@/types/chart_item';
+import ChartItem from '@/types/chart-item';
 
 ChartJS.register(
   LineController,

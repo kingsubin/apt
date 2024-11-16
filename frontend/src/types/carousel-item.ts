@@ -4,7 +4,7 @@ interface CarouselItem {
   price: number;
   date: string;
   area: number;
-  road_address: string;
+  roadAddress: string;
 }
 
 export default CarouselItem;

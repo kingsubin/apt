@@ -1,9 +1,10 @@
 from datetime import date
-from src.schemas.pydantic_base import PydanticBaseModel
 from pydantic import computed_field
 
+from src.schemas.response import CamelCaseModel
 
-class TradeStats(PydanticBaseModel):
+
+class TradeStats(CamelCaseModel):
     trade_date: date
     volume: int = 0
     total_price: int = 0

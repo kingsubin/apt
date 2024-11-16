@@ -26,6 +26,7 @@ class Config(CustomBaseSettings):
     CORS_ORIGINS: list[str] = ["*"]
     CORS_ORIGINS_REGEX: str | None = None
     CORS_HEADERS: list[str] = ["*"]
+    CORS_METHODS: list[str] = ["*"]
 
     APP_VERSION: str = "0.1"
 
